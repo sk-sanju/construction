@@ -26,6 +26,30 @@ html {
     scroll-behavior: smooth;
 }
 
+.hero-bg-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.034); /* Dark overlay */
+    z-index: -1;
+}
+
 body {
     font-family: var(--font-poppins);
     background-color: #ffffff;
@@ -201,7 +225,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(34, 34, 34, 0.95) 30%, rgba(34, 34, 34, 0.7) 100%);
+    background: rgba(0, 0, 0, 0.35); /* Lightweight overlay to maintain text readability while showing the background video */
     z-index: 1;
 }
 
@@ -211,6 +235,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     z-index: 0;
 }
 
