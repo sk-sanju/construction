@@ -1,0 +1,568 @@
+/* 
+   Art Home Construction - Premium Style Sheet
+   Location: Pazhayannur, Thrissur, Kerala
+   Colors: Primary Gold (#C68A2D), Dark Charcoal (#222222), Accent White (#ffffff)
+*/
+
+:root {
+    --primary-gold: #C68A2D;
+    --primary-gold-hover: #b07722;
+    --dark-charcoal: #222222;
+    --dark-secondary: #1a1a1a;
+    --light-grey: #f8f9fa;
+    --text-muted-dark: #6c757d;
+    --transition-speed: 0.3s;
+    --font-poppins: 'Poppins', sans-serif;
+}
+
+/* Global Reset & Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-poppins);
+    background-color: #ffffff;
+    color: var(--dark-charcoal);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom Text and Highlight Styles */
+.text-gold {
+    color: var(--primary-gold) !important;
+}
+
+.bg-gold {
+    background-color: var(--primary-gold) !important;
+}
+
+.btn-gold {
+    background-color: var(--primary-gold);
+    color: #111111;
+    border: 1px solid var(--primary-gold);
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.btn-gold:hover, .btn-gold:focus {
+    background-color: var(--primary-gold-hover);
+    border-color: var(--primary-gold-hover);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(198, 138, 45, 0.4);
+}
+
+.tracking-wide {
+    letter-spacing: 2px;
+}
+
+.fs-7 {
+    font-size: 0.8rem;
+}
+
+.max-w-600 {
+    max-width: 600px;
+}
+
+.py-6 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 9999;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    background: var(--primary-gold);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Loading Spinner */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark-charcoal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(198, 138, 45, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-gold);
+    animation: spin 1s ease-in-out infinite;
+    position: relative;
+}
+
+.spinner-inner {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Navbar Custom Styling with Glassmorphism */
+.navbar {
+    background: rgba(34, 34, 34, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.navbar.navbar-scrolled {
+    padding: 10px 0;
+    background: rgba(26, 26, 26, 0.95);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px !important;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-gold) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 16px;
+    background-color: var(--primary-gold);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: calc(100% - 32px);
+}
+
+/* Logo icon outline */
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--primary-gold);
+    border-radius: 8px;
+    background: rgba(198, 138, 45, 0.05);
+}
+
+/* Hero Section Style */
+.hero-section {
+    min-height: 90vh;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background-color: var(--dark-charcoal);
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(34, 34, 34, 0.95) 30%, rgba(34, 34, 34, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-bg-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 3;
+}
+
+.hero-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.hero-divider .shape-fill {
+    fill: var(--light-grey);
+}
+
+/* About Us Section Styles */
+.about-img-wrapper {
+    position: relative;
+}
+
+.about-experience-badge {
+    min-width: 150px;
+    min-height: 150px;
+    border-left: 5px solid var(--dark-charcoal);
+}
+
+/* Services section cards */
+.service-card {
+    transition: all var(--transition-speed) ease-in-out;
+    border-radius: 16px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    background-color: rgba(198, 138, 45, 0.1) !important;
+    border-color: var(--primary-gold) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.service-icon {
+    transition: transform var(--transition-speed) ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Why Choose Us Milestones Stats cards */
+.stat-card {
+    transition: transform var(--transition-speed) ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Portfolio Gallery Overlay & Scales */
+.portfolio-card {
+    cursor: pointer;
+}
+
+.portfolio-overlay {
+    background: linear-gradient(to top, rgba(34, 34, 34, 0.9) 0%, rgba(34, 34, 34, 0) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.hover-scale {
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .hover-scale {
+    transform: scale(1.1);
+}
+
+/* Custom Process Timeline (Vertical on Mobile, alternating nodes) */
+.timeline-container {
+    position: relative;
+    padding: 30px 0;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 2px;
+    background: rgba(198, 138, 45, 0.3);
+}
+
+.timeline-block {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 40px;
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-badge {
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    z-index: 2;
+    background-color: var(--primary-gold) !important;
+    color: var(--dark-charcoal) !important;
+    border: 3px solid var(--dark-charcoal);
+    box-shadow: 0 0 0 3px var(--primary-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-content {
+    transition: transform var(--transition-speed) ease;
+}
+
+.timeline-block:hover .timeline-content {
+    transform: translateX(5px);
+}
+
+@media (min-width: 992px) {
+    .timeline-container::before {
+        left: 50%;
+        margin-left: -1px;
+    }
+    
+    .timeline-block {
+        padding-left: 0;
+        margin-bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .timeline-badge {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: 0;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .timeline-content {
+        width: 45%;
+        position: relative;
+    }
+    
+    /* Odd blocks (1, 3, 5): Content on the left */
+    .timeline-block:nth-child(odd) {
+        flex-direction: row;
+    }
+    .timeline-block:nth-child(odd) .timeline-content {
+        text-align: right;
+    }
+    
+    /* Even blocks (2, 4, 6): Content on the right */
+    .timeline-block:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    .timeline-block:nth-child(even) .timeline-content {
+        text-align: left;
+    }
+    
+    .timeline-block:hover .timeline-content {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Clean Carousel Controls and test card design */
+.carousel-item p {
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* Team section animations and social overlay */
+.team-card {
+    transition: all var(--transition-speed) ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.team-img-wrapper {
+    overflow: hidden;
+}
+
+.team-img {
+    transition: transform 0.5s ease;
+    object-fit: cover;
+    height: 320px;
+}
+
+.team-card:hover .team-img {
+    transform: scale(1.08);
+}
+
+.team-socials {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.team-card:hover .team-socials {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Accordion Custom Dark / Gold Styles */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(198, 138, 45, 0.1) !important;
+    color: var(--primary-gold) !important;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(198, 138, 45, 0.5);
+}
+
+/* Footer links style */
+.footer-links a {
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-gold) !important;
+}
+
+/* Scroll reveal initial states */
+.reveal-fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.reveal-slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Floating Buttons & Back to Top Style */
+.btn-back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    border: none;
+    transition: transform var(--transition-speed) ease;
+}
+
+.btn-back-to-top:hover {
+    transform: scale(1.1);
+}
+
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 95px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #25D366;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    z-index: 98;
+    transition: transform var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.floating-whatsapp-btn:hover {
+    transform: scale(1.1);
+    color: #ffffff;
+}
+
+.floating-call-btn {
+    position: fixed;
+    bottom: 160px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-gold);
+    color: var(--dark-charcoal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 98;
+    transition: transform var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.floating-call-btn:hover {
+    transform: scale(1.1);
+    color: var(--dark-charcoal);
+}
+
+@media (max-width: 576px) {
+    .btn-back-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+    .floating-whatsapp-btn {
+        bottom: 80px;
+        right: 20px;
+    }
+    .floating-call-btn {
+        bottom: 140px;
+        right: 20px;
+    }
+}
